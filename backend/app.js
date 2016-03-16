@@ -60,9 +60,15 @@ app.get('/api/sixDayForecast', function(req, res) {
 	})
 })
 
-api.get('/api/thirtyDayForecast', function(req, res) {
+app.get('/api/thirtyDayForecast', function(req, res) {
 	var location = req.query.location
-	
+
+	fs.readFile('../thirtydayscrapper/livingstone_combined.json', (err, data) => {
+  		if (err) throw err;
+  		res.type('json')
+  		res.send(data)	
+	});
+
 })
 
 
