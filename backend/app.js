@@ -45,20 +45,23 @@ app.get('/api/sixDayForecast', function(req, res) {
 			    // output += k[i]
 	    	}
 		};
-		output = output.replace(/\//g, "")
+		// output = output.replace(/\//g, "")
 		output = output.substr(0, output.length - 1)
 		output = '{ "Six Forecast": [' + output + '] }'
 		// output = output + "'"
 	    console.log(output)
-	    eval("var finalout = " + output);
+	    // eval("var finalout = " + output);
 	    // console.log(output)
-	    res.json(output)
+	    res.type('json'); 
+	    res.send(output)
 	 } else {
 	 	res.json('error!')
 	 }
 	})
-
 })
+
+// api.get()
+
 
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
