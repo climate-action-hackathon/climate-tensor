@@ -60,7 +60,10 @@ app.get('/api/sixDayForecast', function(req, res) {
 	})
 })
 
-// api.get()
+api.get('/api/thirtyDayForecast', function(req, res) {
+	var location = req.query.location
+	
+})
 
 
 app.listen(app.get('port'), function() {
