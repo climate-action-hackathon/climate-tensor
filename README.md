@@ -1,5 +1,8 @@
 # climate-tensor
 
+###Team Members
+Gladys Kitony, Daniel Mbeyah, Pooja Pasawala, Madi Yahya, David Yong
+
 ### Mission Statement: Defined
 Gives an organisation a sense of direction and defines what to be done for who and for what purpose
 
