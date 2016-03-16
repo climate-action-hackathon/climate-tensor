@@ -32,26 +32,31 @@ app.get('/api/sixDayForecast', function(req, res) {
 	    k = k['hourlyForecastPeriod']
 	    console.log(k.length)
 	    console.log(k[2])
-
-	 //    for (var i=0; i<k['hourlyForecastPeriod'].length; i++){
-		//     var bit = k['hourlyForecastPeriod'][i];
-		//     output += '[name: "' + bit['name'] +
-		//         '", number: "' + bit['number'] +
-		//         '", email: "' + bit['email'] +
-		//         ']\n';
-		// };
-
-
-
-
-
-
-	    res.json(k)
+	    output = ''
+	    fine = 0
+	    for (var i=0; i<k.length; i++){
+	    	if (i % 23 == 0) {
+			    var bit = k[i];
+			    output += '{"temperature":' + bit['temperature'] + 
+			    ', "humidity":' + bit['relativeHumidity'] +
+			    ', "precip":' + bit['adjustedPrecipProbability'] + 
+			    ', "description":' + JSON.stringify(bit['description']) +
+			    '},'
+			    // output += k[i]
+	    	}
+		};
+		output = output.replace(/\//g, "")
+		output = output.substr(0, output.length - 1)
+		output = '{ "Six Forecast": [' + output + '] }'
+		// output = output + "'"
+	    console.log(output)
+	    eval("var finalout = " + output);
+	    // console.log(output)
+	    res.json(output)
 	 } else {
 	 	res.json('error!')
 	 }
 	})
-
 
 })
 
