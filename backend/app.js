@@ -21,9 +21,19 @@ app.get('/', function(req, res) {
 app.get('/api/sixDayForecast', function(req, res) {
 	var lon = req.query.lon;
 	var lat = req.query.lat;
+	console.log(lon)
+	console.log(lat)
 	var base = "https://earthnetworks.azure-api.net/getHourly6DayForecast/data/forecasts/v1/hourly?location="
 	var additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key=d484f320c70e43528cd85eae0618c45a"
 	
+	request(base + lon +','+ lat + additional, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+	    console.log(body) // Show the HTML for the Google homepage.
+	 } else {
+	 	console.log(error)
+	 }
+	})
+
 	res.json(lon)
 })
 
