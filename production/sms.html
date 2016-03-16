@@ -52,6 +52,7 @@
           </div>
           <div class="clearfix"></div>
 
+
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
@@ -321,56 +322,58 @@
 
       <!-- page content -->
       <div class="right_col" role="main">
+
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3>Resources</h3>
-            </div>
-
-            <div class="title_right">
-              <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for...">
-                  <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>
-                </div>
-              </div>
+              <h3>SMS</h3>
             </div>
           </div>
           <div class="clearfix"></div>
 
           <div class="row">
-
             <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel" style="height:600px;">
+              <div class="x_panel">
                 <div class="x_title">
-                  <h2>Climate Change</h2>
-                  <div class="clearfix"></div>
-                  <ul>
-                    <li><a href="#" target="_blank">Infographic on climate change impact on agricultural production</a></li>
-                    <li><a href="https://ccafs.cgiar.org/bigfacts/#theme=climate-impacts-production" target="_blank">CGIAR Big Facts</a></li>
+                  <h2>Message Composer</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
                   </ul>
                   <div class="clearfix"></div>
                 </div>
 
-                <div class="x_title">
-                  <h2>Weather</h2>
-                  <div class="clearfix"></div>
-                  <ul>
-                    <li><a href="http://www.visionlearning.com/en/library/Process-of-Science/49/Data-Analysis-and-Interpretation/154" target="_blank">Data collection, analysis, and interpretation: Weather and climate</a></li>
-                  </ul>
-                  <div class="clearfix"></div>
+                <div>
+                  <label for="message">Message:</label>
+                        <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                          data-parsley-validation-threshold="10"></textarea>
+
+                  <br/>
+                </div>
+                <div class="x_content">
+                  <label for="message">Recipients:</label>
+                  <p>Drag multiple files to the box below for multi upload or click to select files.</p>
+                  <form action="choices/form_upload.html" class="dropzone" style="border: 1px solid #e5e5e5; height: 300px; "></form>
+
+                  <br />
+
                 </div>
 
-                <div class="x_title">
-                  <h2>Diseases & Pests</h2>
-                  <div class="clearfix"></div>
-                  <ul>
-                    <li><a href="http://www.devolutionplanning.go.ke/Publications/INTEGRATED%20PEST%20MANAGEMENT%20FRAMEWORK%20.pdf" target="_blank">Integrated Pest Management Framework</a></li>
-                    <li><a href="http://www.organic-africa.net/fileadmin/documents-africamanual/training-manual/chapter-04/Africa_Manual_M04.pdf" target="_blank">Disease and Pest Manual for Africa - African Organic Agriculture Training Manual</a></li>
-                  </ul>
-                  <div class="clearfix"></div>
+                <div>
+                  <a class="btn btn-app" href="#">
+                    <i class="fa fa-envelope"></i> Send SMS
+                  </a>
                 </div>
 
               </div>
@@ -410,10 +413,11 @@
   <script src="js/icheck/icheck.min.js"></script>
 
   <script src="js/custom.js"></script>
-
+  <!-- dropzone -->
+  <script src="js/dropzone/dropzone.js"></script>
   <!-- pace -->
   <script src="js/pace/pace.min.js"></script>
-
 </body>
 
 </html>
+
