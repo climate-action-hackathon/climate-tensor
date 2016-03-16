@@ -6365,3 +6365,13 @@ ul.notifications {
 .copyright-info {
     padding: 8px 0;
 }
+
+.day-forecast{
+    text-align:center;
+    background:#FAFAF8;
+    border-radius:4px;
+    border:1px solid #dedede;
+}
+.df-outer{
+    padding:5px;
+}
