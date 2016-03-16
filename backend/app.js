@@ -4,6 +4,11 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var request = require('request')
 
+
+var accountSid = 'ACc49afb7cb75a11ee6e8e59ef28183663';
+var authToken = "2f1556c78f1055c285f5303d592776fe";
+var client = require('twilio')(accountSid, authToken);
+
  var app = express()
 // App shit
 app.use(morgan('dev'));
@@ -74,6 +79,15 @@ app.get('/api/thirtyDayForecast', function(req, res) {
 	});
 
 })
+
+
+client.messages.create({
+    body: "hi",
+    to: "+254726957658",
+    from: "+19802553729"
+}, function(err, message) {
+    console.log(err)
+});
 
 
 app.listen(app.get('port'), function() {
