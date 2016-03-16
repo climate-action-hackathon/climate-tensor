@@ -3,38 +3,25 @@ import bs4
 import threading
 import json
 
-test = "http://www.accuweather.com/en/zm/adonsi/819368/march-weather/819368?monyr=3/1/2016&view=table"
+test = "http://www.accuweather.com/en/zm/livingstone/355959/march-weather/355959?monyr=3/1/2016&view=table"
 
 r = requests.get(test)
 # print(r.text)
 source = bs4.BeautifulSoup(r.content, "lxml")
 
-# k = source.findAll("td")
-
-# indivjson = {}
-
-# for lol in k:
-# 	temp = lol.find("span", {"class":"temp"})
-# 	lo = lol.find("span", {"class":"lo"})
-# 	# print(temp.contents[0])
-# 	# print(high.contents[0])
-
-# 	d = {
-# 		"name": {
-# 			"temp": temp,
-# 			"high": lo,
-
-# 		}
-# 	}
+indivjson = {}
 def dropList(x):
 	return ''.join(x)
 
 k = source.findAll("th", {"style": "background-color:#f6f7f8"})
 # print(k)
+count = 0
 for x in k:
-	# z = x.contents
-	# # z = dropList(z)
-	# z = z[len(z)-13:len(z)-4]
+	count += 1
+	z = x.contents
+	str(z)
+	z = z[len(z)-13:len(z)-4]
+	z = dropList(z)
 
 	gg = x.findNextSibling('td')
 	ggg = gg.contents
@@ -44,7 +31,7 @@ for x in k:
 	pp = gg.findNextSibling('td')
 	ppp = pp.contents
 	ppp = dropList(ppp)
-	lo = ggg[:len(ggg)-1]
+	lo = ppp[:len(ppp)-1]
 
 	ww = pp.findNextSibling('td')
 	www = ww.contents
@@ -57,20 +44,15 @@ for x in k:
 	print(lo)
 	print(pre)
 
-	
-# indivjson = {}
+	d = {
+		count: {
+			"lotemp": lo,
+			"hitemp": hi,
+			"pre" : pre,
+		}
+	}
 
-# for lol in k:
-# 	temp = lol.find("span", {"class":"temp"})
-# 	lo = lol.find("span", {"class":"lo"})
-# 	# print(temp.contents[0])
-# 	# print(high.contents[0])
+	indivjson.update(d)
 
-# 	d = {
-# 		"name": {
-# 			"temp": temp,
-# 			"high": lo,
-
-# 		}
-# 	}
-# print(k)
+with open('livingstone_march.txt', 'w') as outfile:
+    json.dump(indivjson, outfile)
