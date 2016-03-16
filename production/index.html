@@ -441,7 +441,36 @@
             </div>
           </div>
           <br>
+                            <div class="clearfix"></div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="panel panel-body">
+                        <div class="x_title">
+                          <h4>Easy Pie Chart</h4>
+                        </div>
 
+                        <p>Easy pie chart is a jQuery plugin that uses the canvas element to render highly customizable, very easy to implement, simple pie charts for single values.</p>
+                        <div class="row">
+                          <div class="col-xs-4">
+                            <span class="chart" data-percent="86">
+                                            <span class="percent"></span>
+                            </span>
+                          </div>
+                          <div class="col-xs-4">
+                            <span class="chart" data-percent="73">
+                                            <span class="percent"></span>
+                            </span>
+                          </div>
+                          <div class="col-xs-4">
+                            <span class="chart" data-percent="60">
+                                            <span class="percent"></span>
+                            </span>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+
+                      </div>
+                    </div>
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="dashboard_graph">
@@ -655,8 +684,57 @@
   <script src="js/moris/morris.min.js"></script>
   <!-- pace -->
   <script src="js/pace/pace.min.js"></script>
+  <!-- easypie -->
+  <script src="js/easypie/jquery.easypiechart.min.js"></script>
 
+ <script>
+    $(function() {
+      $('.chart').easyPieChart({
+        easing: 'easeOutBounce',
+        lineWidth: '6',
+        barColor: '#75BCDD',
+        onStep: function(from, to, percent) {
+          $(this.el).find('.percent').text(Math.round(percent));
+        }
+      });
+      var chart = window.chart = $('.chart').data('easyPieChart');
+      $('.js_update').on('click', function() {
+        chart.update(Math.random() * 200 - 100);
+      });
 
+      //hover and retain popover when on popover content
+      var originalLeave = $.fn.popover.Constructor.prototype.leave;
+      $.fn.popover.Constructor.prototype.leave = function(obj) {
+        var self = obj instanceof this.constructor ?
+          obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('bs.' + this.type)
+        var container, timeout;
+
+        originalLeave.call(this, obj);
+
+        if (obj.currentTarget) {
+          container = $(obj.currentTarget).siblings('.popover')
+          timeout = self.timeout;
+          container.one('mouseenter', function() {
+            //We entered the actual popover – call off the dogs
+            clearTimeout(timeout);
+            //Let's monitor popover content instead
+            container.one('mouseleave', function() {
+              $.fn.popover.Constructor.prototype.leave.call(self, self);
+            });
+          })
+        }
+      };
+      $('body').popover({
+        selector: '[data-popover]',
+        trigger: 'click hover',
+        delay: {
+          show: 50,
+          hide: 400
+        }
+      });
+
+    });
+  </script>
   <script>
     $(function() {
       $('#world-map-gdp').vectorMap({
