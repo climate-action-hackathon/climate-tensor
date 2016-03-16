@@ -80,14 +80,25 @@ app.get('/api/thirtyDayForecast', function(req, res) {
 
 })
 
+app.get('/api/sendtext', function(req, res) {
+	var number = req.query.number
+	var message = req.query.message
 
-client.messages.create({
-    body: "hi",
-    to: "+254726957658",
-    from: "+19802553729"
-}, function(err, message) {
-    console.log(err)
-});
+	client.messages.create({
+	    body: message,
+	    to: '+' + number,
+	    from: "+19802553729"
+	}, function(err, message) {
+	    if (err) {
+	    	res.send(err)
+	    } else {
+	    	res.send('success, i think')
+	    }
+	});
+
+})
+
+
 
 
 app.listen(app.get('port'), function() {
