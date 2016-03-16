@@ -28,13 +28,31 @@ app.get('/api/sixDayForecast', function(req, res) {
 	
 	request(base + lon +','+ lat + additional, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
-	    console.log(body) // Show the HTML for the Google homepage.
+	    eval("var k = " + body);
+	    k = k['hourlyForecastPeriod']
+	    console.log(k.length)
+	    console.log(k[2])
+
+	 //    for (var i=0; i<k['hourlyForecastPeriod'].length; i++){
+		//     var bit = k['hourlyForecastPeriod'][i];
+		//     output += '[name: "' + bit['name'] +
+		//         '", number: "' + bit['number'] +
+		//         '", email: "' + bit['email'] +
+		//         ']\n';
+		// };
+
+
+
+
+
+
+	    res.json(k)
 	 } else {
-	 	console.log(error)
+	 	res.json('error!')
 	 }
 	})
 
-	res.json(lon)
+
 })
 
 app.listen(app.get('port'), function() {
