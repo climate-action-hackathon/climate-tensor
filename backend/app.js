@@ -64,9 +64,13 @@ app.get('/api/thirtyDayForecast', function(req, res) {
 	var location = req.query.location
 
 	fs.readFile('../thirtydayscrapper/livingstone_combined.json', (err, data) => {
-  		if (err) throw err;
-  		res.type('json')
-  		res.send(data)	
+  		if (err) {
+  			res.send(error)
+  		}
+  		else {
+  			res.type('json')
+  			res.send(data)	
+  		}
 	});
 
 })
