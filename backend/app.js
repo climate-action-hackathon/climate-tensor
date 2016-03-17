@@ -3,8 +3,12 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var request = require('request')
+var mongoose = require('mongoose');
 
 
+// var lol = require('../models/Farmers.js')
+
+// Twilio
 var accountSid = 'ACc49afb7cb75a11ee6e8e59ef28183663';
 var authToken = "2f1556c78f1055c285f5303d592776fe";
 var client = require('twilio')(accountSid, authToken);
@@ -17,8 +21,18 @@ app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 3000);
 
+// Farmer
+var Farmer = require('./models/Farmers')
+
+// Mongo Connection
+mongoose.connect('mongodb://lacunadream:mylol!@ds015889.mlab.com:15889/climateaction');
+// mongoose.connect('mongodb://lacunadream:specialPASSWORD!@ds057934.mongolab.com:57934/dreamip')
+mongoose.connection.on('error', function() {
+  console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
+});
 
 
+// API Starts
 app.get('/', function(req, res) {
     res.json({ message: 'eff off' });   
 });
@@ -99,6 +113,36 @@ app.get('/api/sendtext', function(req, res) {
 })
 
 
+// Add farmer API
+
+app.post('/api/addfarmer', function(req, res) {
+
+	var farmer = new Farmer({
+		name: req.body.fullname,
+		location : req.body.loc,
+		phoneNumber : req.body.phone,
+		farmSize : req.body.farmsize,
+		rainfallRisk : req.body.rain,
+		tempRisk : req.body.temp,
+		humidityRisk : req.body.humidity, 
+		crop: req.body.crop
+	})
+	console.log(req.body.loc)
+	farmer.save(function(err) {
+		if (err) return (err);
+		res.json('success!')
+	})
+
+})
+
+app.get('/api/allfarmers', function(req, res) {
+	Farmer
+		.find()
+		.sort()
+		.exec(function(err, k) {
+			res.json(k)
+		})
+})
 
 
 app.listen(app.get('port'), function() {
