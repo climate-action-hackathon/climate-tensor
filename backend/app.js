@@ -142,7 +142,7 @@ app.get('/api/allfarmers', function(req, res) {
 		.find()
 		.sort()
 		.exec(function(err, k) {
-			res.json(k)
+			res.jsonp(k)
 		})
 })
 
@@ -379,5 +379,3 @@ var omg = {
 		"pre": "0 m"
 	}
 }
-
-console.log(omg)
