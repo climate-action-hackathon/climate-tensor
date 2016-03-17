@@ -77,20 +77,22 @@ app.get('/api/sixDayForecast', function(req, res) {
 	 	res.json('error!')
 	 }
 	})
-})
+})	
 
 app.get('/api/thirtyDayForecast', function(req, res) {
 	var location = req.query.location
 
-	fs.readFile('../thirtydayscrapper/livingstone_combined.json', (err, data) => {
-  		if (err) {
-  			res.send(err)
-  		}
-  		else {
-  			res.type('json')
-  			res.send(data)	
-  		}
-	});
+	res.type('json')
+	res.send(omg)
+	// fs.readFile('../thirtydayscrapper/livingstone_combined.json', (err, data) => {
+ //  		if (err) {
+ //  			res.send(err)
+ //  		}
+ //  		else {
+ //  			res.type('json')
+ //  			res.send(data)	
+ //  		}
+	// });
 
 })
 
@@ -148,3 +150,234 @@ app.get('/api/allfarmers', function(req, res) {
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
+
+
+var omg = {
+	"1": {
+		"pre": "12 m",
+		"lotemp": "19",
+		"hitemp": "28"
+	},
+	"2": {
+		"pre": "5 m",
+		"lotemp": "20",
+		"hitemp": "29"
+	},
+	"3": {
+		"pre": "6 m",
+		"lotemp": "19",
+		"hitemp": "28"
+	},
+	"4": {
+		"pre": "9 m",
+		"lotemp": "19",
+		"hitemp": "29"
+	},
+	"5": {
+		"pre": "17 m",
+		"lotemp": "19",
+		"hitemp": "30"
+	},
+	"6": {
+		"pre": "5 m",
+		"lotemp": "20",
+		"hitemp": "29"
+	},
+	"7": {
+		"pre": "3 m",
+		"lotemp": "18",
+		"hitemp": "31"
+	},
+	"8": {
+		"pre": "7 m",
+		"lotemp": "19",
+		"hitemp": "25"
+	},
+	"9": {
+		"pre": "12 m",
+		"lotemp": "20",
+		"hitemp": "25"
+	},
+	"10": {
+		"pre": "2 m",
+		"lotemp": "18",
+		"hitemp": "26"
+	},
+	"11": {
+		"pre": "4 m",
+		"lotemp": "18",
+		"hitemp": "31"
+	},
+	"12": {
+		"pre": "3 m",
+		"lotemp": "17",
+		"hitemp": "30"
+	},
+	"13": {
+		"pre": "0 m",
+		"lotemp": "17",
+		"hitemp": "30"
+	},
+	"14": {
+		"pre": "1 m",
+		"lotemp": "17",
+		"hitemp": "29"
+	},
+	"15": {
+		"pre": "0 m",
+		"lotemp": "15",
+		"hitemp": "30"
+	},
+	"16": {
+		"pre": "0 m",
+		"lotemp": "17",
+		"hitemp": "29"
+	},
+	"17": {
+		"lotemp": "18",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"18": {
+		"lotemp": "18",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"19": {
+		"lotemp": "17",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"20": {
+		"lotemp": "17",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"21": {
+		"lotemp": "17",
+		"hitemp": "27",
+		"pre": "0 m"
+	},
+	"22": {
+		"lotemp": "17",
+		"hitemp": "30",
+		"pre": "0 m"
+	},
+	"23": {
+		"lotemp": "18",
+		"hitemp": "31",
+		"pre": "0 m"
+	},
+	"24": {
+		"lotemp": "17",
+		"hitemp": "29",
+		"pre": "0 m"
+	},
+	"25": {
+		"lotemp": "17",
+		"hitemp": "29",
+		"pre": "0 m"
+	},
+	"26": {
+		"lotemp": "17",
+		"hitemp": "30",
+		"pre": "0 m"
+	},
+	"27": {
+		"lotemp": "17",
+		"hitemp": "31",
+		"pre": "0 m"
+	},
+	"28": {
+		"lotemp": "17",
+		"hitemp": "27",
+		"pre": "0 m"
+	},
+	"29": {
+		"lotemp": "17",
+		"hitemp": "31",
+		"pre": "0 m"
+	},
+	"30": {
+		"lotemp": "17",
+		"hitemp": "31",
+		"pre": "0 m"
+	},
+	"31": {
+		"lotemp": "16",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"32": {
+		"lotemp": "15",
+		"hitemp": "27",
+		"pre": "0 m"
+	},
+	"33": {
+		"lotemp": "15",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"34": {
+		"lotemp": "16",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"35": {
+		"lotemp": "14",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"36": {
+		"lotemp": "15",
+		"hitemp": "30",
+		"pre": "0 m"
+	},
+	"37": {
+		"lotemp": "13",
+		"hitemp": "31",
+		"pre": "0 m"
+	},
+	"38": {
+		"lotemp": "15",
+		"hitemp": "31",
+		"pre": "0 m"
+	},
+	"39": {
+		"lotemp": "16",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"40": {
+		"lotemp": "15",
+		"hitemp": "28",
+		"pre": "0 m"
+	},
+	"41": {
+		"lotemp": "14",
+		"hitemp": "27",
+		"pre": "0 m"
+	},
+	"42": {
+		"lotemp": "13",
+		"hitemp": "27",
+		"pre": "0 m"
+	},
+	"43": {
+		"lotemp": "12",
+		"hitemp": "27",
+		"pre": "0 m"
+	},
+	"44": {
+		"lotemp": "12",
+		"hitemp": "27",
+		"pre": "0 m"
+	},
+	"45": {
+		"lotemp": "14",
+		"hitemp": "27",
+		"pre": "0 m"
+	}
+}
+
+console.log(omg)
