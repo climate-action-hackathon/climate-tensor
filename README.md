@@ -16,5 +16,6 @@ A dashboard that shows weather and farming related information for intermediary 
 **Frontend**: Pooja Pasawala @poojawins, Daniel Mbeyah
 
 **Backend**: David Yong @lacunadream
+
 --------
 ### API Setup:
