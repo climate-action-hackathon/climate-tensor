@@ -19,3 +19,12 @@ A dashboard that shows weather and farming related information for intermediary 
 
 --------
 ### API Setup:
+```git clone https://github.com/climate-action-hackathon/climate-tensor.git```
+```cd backend```
+```npm install```
+```node app.js```
+
+### Crawler:
+```cd thirtydayscrapper```
+```python base_urls.py```
+```python indivpage.py```
