@@ -330,7 +330,7 @@
           <span class="glyphicon glyphicon-bullhorn"></span> Alert!
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
           </button>
-          <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+          <strong>Pest Alert!</strong> Farms within the South at high risk of Aphids attack. Farmers advised to use pesticide x.
         </div>
         <!-- /top tiles -->
 
@@ -369,66 +369,66 @@
 
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">Mon</h2>
+                          <h2 class="day">18th March 2016</h2>
                           <h3 class="degrees">25</h3>
                           <span>
                                   <canvas id="clear-day" width="32" height="32">
                                   </canvas>
 
                           </span>
-                          <h5>15 Ml</h5>
-                          <h5>15 <i>km/h</i></h5>
-                          <h5>15<i>RH</i></h5>
+                          <h5>Rainfall: 15<i>Ml</i></h5>
+                          <h5>Wind: 15<i>km/h</i></h5>
+                          <h5>Humidity: 15<i>RH</i></h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">Tue</h2>
+                          <h2 class="day">19th March 2016</h2>
                           <h3 class="degrees">25</h3>
                           <canvas height="32" width="32" id="rain"></canvas>
-                          <h5>15 <i>Ml</i></h5>
-                          <h5>12 <i>km/h</i></h5>
-                          <h5>15 <i>RH</i></h5>
+                          <h5>Rainfall: 15<i>Ml</i></h5>
+                          <h5>Wind: 12<i>km/h</i></h5>
+                          <h5>Humidity: 15<i>RH</i></h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">Wed</h2>
+                          <h2 class="day">20th March 2016</h2>
                           <h3 class="degrees">27</h3>
                           <canvas height="32" width="32" id="snow"></canvas>
-                          <h5>15<i>Ml</i></h5>
-                          <h5>14 <i>km/h</i></h5>
-                          <h5>15<i>RH</i></h5>
+                          <h5>Rainfall: 15<i>Ml</i></h5>
+                          <h5>Wind: 14 <i>km/h</i></h5>
+                          <h5>Humidity: 15<i>RH</i></h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">Thu</h2>
+                          <h2 class="day">21st March 2016</h2>
                           <h3 class="degrees">28</h3>
                           <canvas height="32" width="32" id="sleet"></canvas>
-                          <h5>15<i>Ml</i></h5>
-                          <h5>15<i>km/h</i></h5>
-                          <h5>15<i>RH</i></h5>
+                          <h5>Rainfall: 15<i>Ml</i></h5>
+                          <h5>Wind: 15<i>km/h</i></h5>
+                          <h5>Humidity: 15<i>RH</i></h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">Fri</h2>
+                          <h2 class="day">22nd March 2016</h2>
                           <h3 class="degrees">28</h3>
                           <canvas height="32" width="32" id="wind"></canvas>
-                          <h5>15<i>Ml</i></h5>
-                          <h5>11<i>km/h</i></h5>
-                          <h5>15<i>RH</i></h5>
+                          <h5>Rainfall: 15<i>Ml</i></h5>
+                          <h5>Wind: 11<i>km/h</i></h5>
+                          <h5>Humidity: 15<i>RH</i></h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">Sat</h2>
+                          <h2 class="day">23rd March 2016</h2>
                           <h3 class="degrees">26</h3>
                           <canvas height="32" width="32" id="cloudy"></canvas>
-                          <h5>15<i>Ml</i></h5>
-                          <h5>10<i>km/h</i></h5>
-                          <h5>15<i>RH</i></h5>
+                          <h5>Rainfall: 15<i>Ml</i></h5>
+                          <h5>Wind: 10<i>km/h</i></h5>
+                          <h5>Humidity: 15<i>RH</i></h5>
                         </div>
                       </span>
                       <div class="clearfix"></div>
@@ -453,107 +453,70 @@
               </div>
               <div class="col-md-7" id="mainb" style="height:350px;"></div>
 
-              <div class="col-md-5 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2><i class="fa fa-bars"></i> Crop Monitor: (By Trend)</h2>
-                  <span class="col-md-12">Key: <span class="badge bg-blue">Normal</span> <span class="badge bg-orange">Warning</span> <span class="badge bg-red">Alarm</span></span>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                      <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Rainfall</a>
-                      </li>
-                      <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Humidity</a>
-                      </li>
-                      <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Temperature</a>
-                      </li>
-                    </ul>
-                    <div id="myTabContent" class="tab-content">
-                      <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                        <p>
-                          <div class="col-md-12 col-sm-3 col-xs-12 bg-white">
-
-                            <div class="col-md-12 col-sm-12 col-xs-6">
-                              <a class="btn btn-app  bg-red" data-toggle="modal" data-target=".bs-example-modal-lg">
-                                <i class="fa fa-bullhorn"></i> Maize
-                              </a>
-                              <a class="btn btn-app  bg-blue">
-                                <i class="fa fa-bullhorn"></i> Coffee
-                              </a>
-                              <a class="btn btn-app  bg-blue">
-                                <i class="fa fa-bullhorn"></i> Tea
-                              </a>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-6">
-                              <a class="btn btn-app bg-orange">
-                                <i class="fa fa-bullhorn"></i> Wheat
-                              </a>
-                              <a class="btn btn-app bg-blue">
-                                <i class="fa fa-bullhorn"></i> Beans
-                              </a>
-                            </div>
-
-                          </div>
-                        </p>
-                      </div>
-                      <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                        <p>
-                            <div class="col-md-12 col-sm-3 col-xs-12 bg-white">
-
-                              <div class="col-md-12 col-sm-12 col-xs-6">
-                                <div class="col-md-12 col-sm-12 col-xs-6">
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-6">
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                </div>
-                              </div>
-
-                            </div>
-                        </p>
-                      </div>
-                      <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                        <p>
-                            <div class="col-md-12 col-sm-3 col-xs-12 bg-white">
-                              <div class="col-md-12 col-sm-12 col-xs-6">
-                                <div class="col-md-12 col-sm-12 col-xs-6">
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-6">
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                  <a class="btn btn-app bg-blue">
-                                    <i class="fa fa-bullhorn"></i> Maize
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                        </p>
-                      </div>
-                    </div>
+              <div class="col-md-5 col-sm-6">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Weather Risk Monitor:</h2>
+                    <div class="clearfix"></div>
                   </div>
+                  <div class="x_content">
+                          <p>
+                            <div class="col-md-12 col-sm-3 col-xs-12 bg-white">
 
+                              <div class="col-md-12 col-sm-12 col-xs-6">
+                                    <div class="x_content">
+
+                                      <table class="" style="width:100%">
+                                        <tr>
+                                          <th style="width:37%;">
+                                            <p></p>
+                                          </th>
+                                          <th>
+                                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                              <p class="">Status</p>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                              <p class="">%Farmers</p>
+                                            </div>
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                                          </td>
+                                          <td>
+                                            <table class="tile_info">
+                                              <tr>
+                                                <td>
+                                                  <p><a href="no_risk.html"><i class="fa fa-square aero"></i>No Risk</a> </p>
+                                                </td>
+                                                <td>15%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <p><a href="low_risk.html"><i class="fa fa-square blue"></i>Low Risk</a> </p>
+                                                </td>
+                                                <td>25%</td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <p><a href="high_risk.html"><i class="fa fa-square red"></i>High Risk</a> </p>
+                                                </td>
+                                                <td>60%</td>
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
+
+                              </div>
+
+                            </div>
+                          </p>
+                        </div>
                 </div>
               </div>
-            </div>
 
 
               <div class="clearfix"></div>
@@ -631,6 +594,8 @@
   <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
   <!-- chart js -->
   <script src="js/chartjs/chart.min.js"></script>
+    <!-- 86pie -->
+  <script src="js/easypie/jquery.easypiechart.min.js"></script>
 
   <script src="js/custom.js"></script>
 
@@ -703,26 +668,20 @@
 
     var data = {
       labels: [
-        "Symbian",
-        "Blackberry",
-        "Other",
-        "Android",
-        "IOS"
+        "No Risk",
+        "High Risk",
+        "Low Risk"
       ],
       datasets: [{
-        data: [15, 20, 30, 10, 30],
+        data: [15, 60, 25],
         backgroundColor: [
           "#BDC3C7",
-          "#9B59B6",
-          "#455C73",
-          "#26B99A",
+          "#E74C3C",
           "#3498DB"
         ],
         hoverBackgroundColor: [
           "#CFD4D8",
-          "#B370CF",
-          "#34495E",
-          "#36CAAB",
+          "#E74C3C",
           "#49A9EA"
         ]
 
@@ -896,6 +855,7 @@
   </script>
   <!-- /datepicker -->
   <!-- /footer content -->
+  
 </body>
 
 </html>
