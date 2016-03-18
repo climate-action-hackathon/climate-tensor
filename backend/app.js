@@ -9,8 +9,8 @@ var mongoose = require('mongoose');
 // var lol = require('../models/Farmers.js')
 
 // Twilio
-var accountSid = 'ACc49afb7cb75a11ee6e8e59ef28183663';
-var authToken = "2f1556c78f1055c285f5303d592776fe";
+var accountSid = process.env.TWIID;
+var authToken = process.env.TWITOKEN;
 var client = require('twilio')(accountSid, authToken);
 
  var app = express()
@@ -25,8 +25,7 @@ app.set('port', process.env.PORT || 3000);
 var Farmer = require('./models/Farmers')
 
 // Mongo Connection
-mongoose.connect('mongodb://lacunadream:mylol!@ds015889.mlab.com:15889/climateaction');
-// mongoose.connect('mongodb://lacunadream:specialPASSWORD!@ds057934.mongolab.com:57934/dreamip')
+mongoose.connect(process.env.MONGODB);
 mongoose.connection.on('error', function() {
   console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
 });
