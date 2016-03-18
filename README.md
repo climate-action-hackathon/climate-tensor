@@ -30,8 +30,13 @@ python indivpage.py
 --------
 ### TO-DO:
 
+##### Frontend:
+- Switch to proper build tool
+- Proper routing: React router maybe?
+- No SCSS file -> problem in the future?
+
 ##### Data:
--7 day: Switch from enterprise to Enact data
+-7 day: Switch from enterprise API to Enact data
 -Monthly: Really use Accuweather? Write proper scrapper if so.
 -Seasonal: Convert IRI data into a format that can be fed into a database
 
@@ -41,14 +46,12 @@ python indivpage.py
 
 ##### Deployment:
 - AWS free-tier instance?
-- 
-
+- NGINX + PostgreSQL
+- Automatic deployment onc commit
 
 ##### Project Management:
-
-
-##### Frontend:
-- Switch to proper build tool
+- Pivotal?
+- Secure more team members?
 
 
 --------
