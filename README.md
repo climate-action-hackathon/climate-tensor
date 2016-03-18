@@ -26,8 +26,33 @@ cd thirtydayscrapper
 python base_urls.py
 python indivpage.py
 ```
+
 --------
-###Team Members
+### TO-DO:
+
+##### Data:
+-7 day: Switch from enterprise to Enact data
+-Monthly: Really use Accuweather? Write proper scrapper if so.
+-Seasonal: Convert IRI data into a format that can be fed into a database
+
+##### Backend:
+- Continuous integration, automated testing
+- Code cleanup
+
+##### Deployment:
+- AWS free-tier instance?
+- 
+
+
+##### Project Management:
+
+
+##### Frontend:
+- Switch to proper build tool
+
+
+--------
+### Team Members
 **Ideation**: Gladys Kitony, Madi Yahya
 
 **Frontend**: Pooja Pasawala @poojawins, Daniel Mbeyah
