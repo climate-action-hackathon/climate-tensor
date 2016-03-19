@@ -36,9 +36,9 @@ python indivpage.py
 - No SCSS file -> problem in the future?
 
 ##### Data:
--7 day: Switch from enterprise API to Enact data
--Monthly: Really use Accuweather? Write proper scrapper if so.
--Seasonal: Convert IRI data into a format that can be fed into a database
+- 7 day: Switch from enterprise API to Enact data
+- Monthly: Really use Accuweather? Write proper scrapper if so.
+- Seasonal: Convert IRI data into a format that can be fed into a database
 
 ##### Backend:
 - Continuous integration, automated testing
