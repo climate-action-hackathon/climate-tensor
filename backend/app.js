@@ -19,6 +19,12 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.set('port', process.env.PORT || 3000);
 
 // Farmer
@@ -147,6 +153,10 @@ app.get('/api/allfarmers', function(req, res) {
 		})
 })
 
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(404).send('API route not found!');
+});
 
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
