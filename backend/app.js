@@ -1,19 +1,19 @@
-var express = require('express');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var request = require('request')
-var mongoose = require('mongoose');
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const request = require('request')
+const mongoose = require('mongoose');
 
 
-// var lol = require('../models/Farmers.js')
+// const lol = require('../models/Farmers.js')
 
 // Twilio
-// var accountSid = process.env.TWIID;
-// var authToken = process.env.TWITOKEN;
-// var client = require('twilio')(accountSid, authToken);
+// const accountSid = process.env.TWIID;
+// const authToken = process.env.TWITOKEN;
+// const client = require('twilio')(accountSid, authToken);
 
- var app = express()
+ const app = express()
 // App shit
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 app.set('port', process.env.PORT || 7788);
 
 // Farmer
-var Farmer = require('./models/Farmers')
+const Farmer = require('./models/Farmers')
 
 // Mongo Connection
 // mongoose.connect(process.env.MONGODB);
@@ -43,25 +43,25 @@ app.get('/', function(req, res) {
 });
 
 app.get('/api/sixDayForecast', function(req, res) {
-	var lon = req.query.lon;
-	var lat = req.query.lat;
+	let lon = req.query.lon;
+	let lat = req.query.lat;
 	// console.log(lon)
 	// console.log(lat)
-	var base = "https://earthnetworks.azure-api.net/getHourly6DayForecast/data/forecasts/v1/hourly?location="
-	var additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key=d484f320c70e43528cd85eae0618c45a"
+	let base = "https://earthnetworks.azure-api.net/getHourly6DayForecast/data/forecasts/v1/hourly?location="
+	let additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key=d484f320c70e43528cd85eae0618c45a"
 	
 	request(base + lon +','+ lat + additional, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 	    eval("var k = " + body);
 	    k = k['hourlyForecastPeriod']
 	    // console.log(k.length)
-	    // console.log(k[2])
+	    console.log(k[2])
 	    output = ''
 	    fine = 0
-	    for (var i=0; i<k.length; i++){
+	    for (let i=0; i<k.length; i++){
 	    	// k has 142 data points for the next 6 days. pick only 6 data points to represent the next
 	    	if (i % 23 == 0) {
-			    var bit = k[i];
+			    let bit = k[i];
 			    // create own json
 			    output += '{"temperature":' + bit['temperature'] + 
 			    ', "humidity":' + bit['relativeHumidity'] +
@@ -78,7 +78,7 @@ app.get('/api/sixDayForecast', function(req, res) {
 		output = '{ "Six Forecast": [' + output + '] }'
 		// output = output + "'"
 	    console.log(output)
-	    // eval("var finalout = " + output);
+	    // eval("let finalout = " + output);
 	    // console.log(output)
 	    res.type('json'); 
 	    res.send(output)
@@ -89,7 +89,7 @@ app.get('/api/sixDayForecast', function(req, res) {
 })	
 
 app.get('/api/thirtyDayForecast', function(req, res) {
-	var location = req.query.location
+	let location = req.query.location
 
 	// res.type('json')
 	// res.send(omg)
@@ -110,8 +110,8 @@ app.get('/api/thirtyDayForecast', function(req, res) {
 // Twilio
 
 app.get('/api/sendtext', function(req, res) {
-	var number = req.query.number
-	var message = req.query.message
+	let number = req.query.number
+	let message = req.query.message
 
 	client.messages.create({
 	    body: message,
@@ -132,7 +132,7 @@ app.get('/api/sendtext', function(req, res) {
 
 app.post('/api/addfarmer', function(req, res) {
 
-	var farmer = new Farmer({
+	let farmer = new Farmer({
 		name: req.body.fullname,
 		location : req.body.loc,
 		phoneNumber : req.body.phone,
