@@ -299,9 +299,9 @@
                                   </canvas>
 
                           </span>
-                          <h5>Rainfall: 1 mm</h5>
-                          <h5>Wind: 3 km/h</h5>
-                          <h5>Humidity: 75%</h5>
+                          <h5>Rainfall:</h5>
+                          <h5>Wind:</h5>
+                          <h5>Humidity:</h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -309,9 +309,9 @@
                           <h2 class="day"></h2>
                           <h3 class="degrees">25</h3>
                           <canvas height="32" width="32" id="rain"></canvas>
-                          <h5>Rainfall: 5 mm</h5>
-                          <h5>Wind: 4 km/h</h5>
-                          <h5>Humidity: 85%</h5>
+                          <h5>Rainfall:</h5>
+                          <h5>Wind:</h5>
+                          <h5>Humidity:</h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -319,9 +319,9 @@
                           <h2 class="day"></h2>
                           <h3 class="degrees">27</h3>
                           <canvas height="32" width="32" id="partly-cloudy-day"></canvas>
-                          <h5>Rainfall: 1 mm</h5>
-                          <h5>Wind: 4 km/h</h5>
-                          <h5>Humidity: 70%</h5>
+                          <h5>Rainfall:</h5>
+                          <h5>Wind:</h5>
+                          <h5>Humidity:</h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -329,9 +329,9 @@
                           <h2 class="day"></h2>
                           <h3 class="degrees">28</h3>
                           <canvas height="32" width="32" id="cloudy"></canvas>
-                          <h5>Rainfall: 5 mm</h5>
-                          <h5>Wind: 5 km/h</h5>
-                          <h5>Humidity: 65%</h5>
+                          <h5>Rainfall:</h5>
+                          <h5>Wind:</h5>
+                          <h5>Humidity:</h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -339,9 +339,9 @@
                           <h2 class="day"></h2>
                           <h3 class="degrees">28</h3>
                           <canvas height="32" width="32" id="fog"></canvas>
-                          <h5>Rainfall: 3 mm</h5>
-                          <h5>Wind: 3 km/h</h5>
-                          <h5>Humidity: 80%</h5>
+                          <h5>Rainfall:</h5>
+                          <h5>Wind:</h5>
+                          <h5>Humidity:</h5>
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -349,9 +349,9 @@
                           <h2 class="day"></h2>
                           <h3 class="degrees">26</h3>
                           <canvas height="32" width="32" id="partly-cloudy-night"></canvas>
-                          <h5>Rainfall: 4 mm</h5>
-                          <h5>Wind: 3 km/h</h5>
-                          <h5>Humidity: 85%</h5>
+                          <h5>Rainfall:</h5>
+                          <h5>Wind:</h5>
+                          <h5>Humidity:</h5>
                         </div>
                       </span>
                       <div class="clearfix"></div>
@@ -829,7 +829,7 @@
 
   <script>
     var dateToday = new Date();
-    console.log(dateToday);
+    // console.log(dateToday);
     var dateDay = dateToday.getDate();
     var dateMonth = dateToday.getMonth() + 1;
     var dateYear = dateToday.getFullYear();
@@ -849,7 +849,7 @@
     for (var i = 0; i < sixForecastDates.length; i++) {
       sixForecastDates[i].innerHTML = (dateDay + i) + '/' + dateMonth + '/' + dateYear
       // sixForecastDates[i].innerHTML = dateDay + i
-      console.log(dateDay+i)
+      // console.log(dateDay+i)
     }
     
 
