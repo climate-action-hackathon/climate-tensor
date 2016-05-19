@@ -30,6 +30,8 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/nprogress.js"></script>
 
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
   <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
@@ -251,7 +253,7 @@
           <span class="glyphicon glyphicon-bullhorn"></span> Alert!
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
           </button>
-          <strong>Pest Alert!</strong> Farms within the South at high risk of Aphids attack. Farmers advised to use pesticide x.
+          <strong>Pest Alert!</strong> Farms in the South at high risk of Aphids attack. Farmers advised to use pesticide x.
         </div>
         <!-- /top tiles -->
 
@@ -290,7 +292,7 @@
 
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">18th March 2016</h2>
+                          <h2 class="day"></h2>
                           <h3 class="degrees">25</h3>
                           <span>
                                   <canvas id="clear-day" width="32" height="32">
@@ -304,7 +306,7 @@
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">19th March 2016</h2>
+                          <h2 class="day"></h2>
                           <h3 class="degrees">25</h3>
                           <canvas height="32" width="32" id="rain"></canvas>
                           <h5>Rainfall: 5 mm</h5>
@@ -314,7 +316,7 @@
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">20th March 2016</h2>
+                          <h2 class="day"></h2>
                           <h3 class="degrees">27</h3>
                           <canvas height="32" width="32" id="partly-cloudy-day"></canvas>
                           <h5>Rainfall: 1 mm</h5>
@@ -324,7 +326,7 @@
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">21st March 2016</h2>
+                          <h2 class="day"></h2>
                           <h3 class="degrees">28</h3>
                           <canvas height="32" width="32" id="cloudy"></canvas>
                           <h5>Rainfall: 5 mm</h5>
@@ -334,7 +336,7 @@
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">22nd March 2016</h2>
+                          <h2 class="day"></h2>
                           <h3 class="degrees">28</h3>
                           <canvas height="32" width="32" id="fog"></canvas>
                           <h5>Rainfall: 3 mm</h5>
@@ -344,7 +346,7 @@
                       </div>
                       <div class="col-sm-2">
                         <div class="daily-weather">
-                          <h2 class="day">23rd March 2016</h2>
+                          <h2 class="day"></h2>
                           <h3 class="degrees">26</h3>
                           <canvas height="32" width="32" id="partly-cloudy-night"></canvas>
                           <h5>Rainfall: 4 mm</h5>
@@ -821,6 +823,37 @@
       }]
     });
   </script>
+
+<!-- Proper date display -->
+
+  <script>
+    var dateToday = new Date();
+    console.log(dateToday);
+    var dateDay = dateToday.getDate();
+    var dateMonth = dateToday.getMonth() + 1;
+    var dateYear = dateToday.getFullYear();
+
+    // if (dateDay < 10) {
+    //   dateDay = '0' + dateDay
+    // };
+
+    if (dateMonth < 10) {
+      dateMonth = '0' + dateMonth
+    }
+
+    // var sixForecastDates = document.getElementByClassName("day")
+    // elementS!
+
+    var sixForecastDates = document.getElementsByClassName("day")
+    for (var i = 0; i < sixForecastDates.length; i++) {
+      sixForecastDates[i].innerHTML = (dateDay + i) + '/' + dateMonth + '/' + dateYear
+      // sixForecastDates[i].innerHTML = dateDay + i
+      console.log(dateDay+i)
+    }
+
+
+  </script>
+
   <!-- /datepicker -->
   <!-- /footer content -->
 
