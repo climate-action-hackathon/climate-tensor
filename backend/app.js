@@ -63,6 +63,7 @@ app.get('/api/sixDayForecast', function(req, res) {
 			    output += '{"temperature":' + bit['temperature'] + 
 			    ', "humidity":' + bit['relativeHumidity'] +
 			    ', "precip":' + bit['adjustedPrecipProbability'] + 
+			    ', "windspeed":' + bit['windSpeed'] +
 			    ', "description":' + JSON.stringify(bit['description']) +
 			    '},'
 			    // output += k[i]
@@ -72,7 +73,7 @@ app.get('/api/sixDayForecast', function(req, res) {
 
 		// sanitization
 		output = output.substr(0, output.length - 1)
-		output = '{ "Six Forecast": [' + output + '] }'
+		output = '{ "sixForecast": [' + output + '] }'
 		// output = output + "'"
 	    console.log(output)
 	    // eval("let finalout = " + output);
