@@ -5,9 +5,6 @@ const fs = require('fs');
 const request = require('request')
 const mongoose = require('mongoose');
 
-
-// const lol = require('../models/Farmers.js')
-
 // Twilio
 // const accountSid = process.env.TWIID;
 // const authToken = process.env.TWITOKEN;
@@ -121,7 +118,7 @@ app.get('/api/sendtext', function(req, res) {
 	    if (err) {
 	    	res.send(err)
 	    } else {
-	    	res.send('success, i think')
+	    	res.send('Success. Message sent to ' + number)
 	    }
 	});
 
