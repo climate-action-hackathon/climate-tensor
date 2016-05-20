@@ -355,19 +355,42 @@
   <!-- pace -->
   <script src="js/pace/pace.min.js"></script>
   <script>
-    var x = document.getElementById("geoloc");
+    var locationData = document.getElementById("geoloc");
+
+    // function getLocation() {
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition(showPosition, fail, options);
+
+    //     } else {
+    //         x.innerHTML = "Geolocation is not supported by this browser.";
+    //     }
+    // }
 
     function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        console.log(pos.coords.latitude)
+        console.log(pos.coords.longitude)
+        locationData.value = pos.coords.latitude.toFixed(4) + "," + pos.coords.longitude.toFixed(4);
+      }, function(err) {
+        console.log(err)
+      }, options 
+      )
     }
 
     function showPosition(position) {
-        x.value = position.coords.latitude + "," + position.coords.longitude;
+        // x.value = position.coords.latitude + "," + position.coords.longitude;
+        console.log(position.coords.latitude)
     }
+
+    function fail(err) {
+      console.log(err)
+    }
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
     </script>
 
 </body>
