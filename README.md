@@ -31,6 +31,7 @@ python indivpage.py
 ```
 python -m http.server // py3
 python -m SimpleHTTPServer // py2
+```
 
 --------
 ### TO-DO:
