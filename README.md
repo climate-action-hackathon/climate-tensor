@@ -27,6 +27,11 @@ python base_urls.py
 python indivpage.py
 ```
 
+### geolocation functionality: 
+```
+python -m http.server // py3
+python -m SimpleHTTPServer // py2
+
 --------
 ### TO-DO:
 
