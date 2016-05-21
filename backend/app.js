@@ -1,10 +1,11 @@
+"use strict";
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const request = require('request')
 const mongoose = require('mongoose');
-
+const path = require('path');
 // Twilio
 // const accountSid = process.env.TWIID;
 // const authToken = process.env.TWITOKEN;
@@ -38,6 +39,9 @@ const Farmer = require('./models/Farmers')
 app.get('/', function(req, res) {
     res.json({ message: 'eff off' });   
 });
+
+// Arua,Entebbe,Fort Portal,Gulu,Jinja,Kabale,Kampala,Kasese,Masindi,Mbarara,Moroto,Paraa,Soroti,Tororo
+
 
 app.get('/api/sixDayForecast', function(req, res) {
 	let lon = req.query.lon;
@@ -93,7 +97,8 @@ app.get('/api/thirtyDayForecast', function(req, res) {
 	// res.send(omg)
 
 	// need to refactor this
-	fs.readFile('../thirtydayscrapper/livingstone_combined.json', (err, data) => {
+
+	fs.readFile(path.join(process.cwd(),'../thirtydayscrapper/livingstone_combined.json'), (err, data) => {
   		if (err) {
   			res.send(err)
   		}
