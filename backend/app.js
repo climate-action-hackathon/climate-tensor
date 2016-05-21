@@ -52,7 +52,7 @@ app.get('/api/sixDayForecast', function(req, res) {
 	    eval("var k = " + body);
 	    k = k['hourlyForecastPeriod']
 	    // console.log(k.length)
-	    console.log(k[2])
+	    // console.log(k[2])
 	    output = ''
 	    fine = 0
 	    for (let i=0; i<k.length; i++){
