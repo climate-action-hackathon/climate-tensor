@@ -59,7 +59,7 @@
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>John Doe</h2>
+              <h2></h2>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -70,7 +70,7 @@
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
-              <h3>General</h3>
+              <h3 style="padding-top: 80px;">General</h3>
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -142,7 +142,8 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">John Doe
+                  <img src="images/img.jpg" alt="">
+<!--                   John Doe -->
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -450,10 +451,21 @@
     }
 
     function displayStored(){
-      document.officer.firstname.value = getCookie("firstname")
-      document.officer.lastname.value = getCookie("lastname")
+      var fn = getCookie("firstname");
+      var ln = getCookie("lastname");
+
+      document.officer.firstname.value = fn
+      document.officer.lastname.value = ln
       document.officer.location.value = getCookie("location")
       document.officer.phone.value = getCookie("phone")
+
+      if (fn.length > 0) {
+        document.getElementsByClassName("profile_info")[0].childNodes[3].innerHTML = fn + " " + ln
+        // document.getElementsByClassName("user-profile dropdown-toggle")[0].childNodes[2].text = fn + " " + ln
+      } else {
+        document.getElementsByClassName("profile_info")[0].childNodes[3].innerHTML = "John Doe"
+        // document.getElementsByClassName("user-profile dropdown-toggle")[0].childNodes[2].innerHTML = "John Doe"
+      }      
     }
 
     window.onload = displayStored()
