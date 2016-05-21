@@ -251,7 +251,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel" style="height:600px;">
                 <div class="x_title">
-                  <h2>Officer Registration</h2>
+                  <h2>Officer Details</h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -272,72 +272,57 @@
                 <!--Reg form-->
                 <div class="x_panel">
                   <div class="x_content">
-                    <br />
                     <form class="form-horizontal form-label-left input_mask" onsubmit="">
 
-                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="First Name">
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                        First Name
+                      </label>
+                      <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control" id="firstname" placeholder="">
+                        <!-- <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span> -->
                       </div>
 
-                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                        <input type="text" class="form-control" id="inputSuccess3" placeholder="Last Name">
-                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                        Last Name
+                      </label>
+                      <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control" id="lastname" placeholder="">
+                        <!-- <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span> -->
                       </div>
 
-<!-- <!--                       <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-<!--     <span class="select2-selection__rendered __web-inspector-hide-shortcut__" id="select2-9foh-container"><span class="select2-selection__placeholder">Select a state</span></span>
- -->
-<!--                         <select name="cars">
-                          <option value="volvo">Volvo XC90</option>
-                          <option value="saab">Saab 95</option>
-                          <option value="mercedes">Mercedes SLK</option>
-                          <option value="audi">Audi TT</option>
-                        </select>                        
-                        <span class="fa fa-street-view form-control-feedback left" aria-hidden="true"></span>
-                      </div>
- --> 
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                        <select class="select2_single form-control" tabindex="-1">
+                      <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                        Location
+                      </label>
+                      <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
+                        <!-- <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span> -->
+                        <select class="select2_single form-control has-feedback-left" tabindex="-1" placeholder="Select area">
                           <option></option>
-                          <option value="AK">Alaska</option>
-                          <option value="HI">Hawaii</option>
-                          <option value="CA">California</option>
-                          <option value="NV">Nevada</option>
-                          <option value="OR">Oregon</option>
-                          <option value="WA">Washington</option>
-                          <option value="AZ">Arizona</option>
-                          <option value="CO">Colorado</option>
-                          <option value="ID">Idaho</option>
-                          <option value="MT">Montana</option>
-                          <option value="NE">Nebraska</option>
-                          <option value="NM">New Mexico</option>
-                          <option value="ND">North Dakota</option>
-                          <option value="UT">Utah</option>
-                          <option value="WY">Wyoming</option>
-                          <option value="AR">Arkansas</option>
-                          <option value="IL">Illinois</option>
-                          <option value="IA">Iowa</option>
-                          <option value="KS">Kansas</option>
-                          <option value="KY">Kentucky</option>
-                          <option value="LA">Louisiana</option>
-                          <option value="MN">Minnesota</option>
-                          <option value="MS">Mississippi</option>
-                          <option value="MO">Missouri</option>
-                          <option value="OK">Oklahoma</option>
-                          <option value="SD">South Dakota</option>
-                          <option value="TX">Texas</option>
+                          <option value="Arua">Arua</option>
+                          <option value="Entebbe">Entebbe</option>
+                          <option value="Fort">Fort</option>
+                          <option value="Portal">Portal</option>
+                          <option value="Gulu">Gulu</option>
+                          <option value="Jinja">Jinja</option>
+                          <option value="Kabale">Kabale</option>
+                          <option value="Kampala">Kampala</option>
+                          <option value="Kasese">Kasese</option>
+                          <option value="Masindi">Masindi</option>
+                          <option value="Mbarara">Mbarara</option>
+                          <option value="Moroto">Moroto</option>
+                          <option value="Paraa">Paraa</option>
+                          <option value="Soroti">Soroti</option>
+                          <option value="Tororo">Tororo</option>
                         </select>
-
                       </div>
 
-
+                      <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                        Contact Number
+                      </label>
+                      <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
+                        <input type="number" class="form-control" id="phone" placeholder="">
+                        <!-- <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span> -->
+                      </div>
 <!--                       <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                        <input type="text" class="form-control" id="inputSuccess5" placeholder="Phone">
-                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-                      </div>
-                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Farm Size">
                         <span class="fa fa-map-o form-control-feedback left" aria-hidden="true"></span>
                       </div>
@@ -351,10 +336,13 @@
                           <span class="input-group-btn">
                               <button type="button" class="btn btn-default" onclick="getLocation()">Get GeoLocation</button>
                           </span>
-                      </div>
-                      <div class="ln_solid"></div> -->
+                      </div> -->
+                      
+                      <div class="ln_solid"></div>
                       <div class="form-group">
-                        <div class="col-md-9 col-sm-9 col-xs-12">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12"></label>
+
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                           <button type="submit" class="btn btn-success">Save details</button>
                           <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
                         </div>
