@@ -98,7 +98,7 @@ app.get('/api/thirtyDayForecast', function(req, res) {
 
 	// need to refactor this
 
-	fs.readFile(path.join(process.cwd(),'../thirtydayscrapper/livingstone_combined.json'), (err, data) => {
+	fs.readFile(path.join(process.cwd(),'/livingstone_combined.json'), (err, data) => {
   		if (err) {
   			res.send(err)
   		}
