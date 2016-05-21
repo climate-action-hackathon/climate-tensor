@@ -46,7 +46,7 @@ request.getAsync(options)
 			
 		})
 		fs.writeFile('areas.txt', areas)
-		fs.writeFile('areasURK.txt', areasURL)
+		fs.writeFile('areasURL.txt', areasURL)
 		return (areas)
 	})
 	.then(console.log)
