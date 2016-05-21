@@ -273,13 +273,12 @@
                 <div class="x_panel">
                   <div class="x_content">
                   </br>
-                    <form class="form-horizontal form-label-left input_mask" onsubmit="">
-  
+                    <form name="officer" class="form-horizontal form-label-left input_mask" onsubmit="storeValues()">
                       <label class="control-label col-md-2 col-sm-2 col-xs-12">
                         First Name
                       </label>
                       <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
-                        <input type="text" class="form-control" id="firstname" placeholder="">
+                        <input type="text" class="form-control" name="firstname" placeholder="">
                         <!-- <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span> -->
                       </div>
 
@@ -287,7 +286,7 @@
                         Last Name
                       </label>
                       <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
-                        <input type="text" class="form-control" id="lastname" placeholder="">
+                        <input type="text" class="form-control" name="lastname" placeholder="">
                         <!-- <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span> -->
                       </div>
 
@@ -296,12 +295,11 @@
                       </label>
                       <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
                         <!-- <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span> -->
-                        <select class="select2_single form-control " tabindex="-1" placeholder="Select area">
+                        <select class="select2_single form-control" name="location" tabindex="-1" placeholder="Select area">
                           <option></option>
                           <option value="Arua">Arua</option>
                           <option value="Entebbe">Entebbe</option>
-                          <option value="Fort">Fort</option>
-                          <option value="Portal">Portal</option>
+                          <option value="FortPortal">Fort Portal</option>
                           <option value="Gulu">Gulu</option>
                           <option value="Jinja">Jinja</option>
                           <option value="Kabale">Kabale</option>
@@ -320,7 +318,7 @@
                         Contact Number
                       </label>
                       <div class="col-md-10 col-sm-10 col-xs-12 form-group has-feedback">
-                        <input type="number" class="form-control" id="phone" placeholder="">
+                        <input type="number" class="form-control" name="phone" placeholder="">
                         <!-- <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span> -->
                       </div>
 <!--                       <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -344,7 +342,7 @@
                         <label class="control-label col-md-2 col-sm-2 col-xs-12"></label>
 
                         <div class="col-md-10 col-sm-10 col-xs-12">
-                          <button type="submit" class="btn btn-success">Save details</button>
+                          <button type="submit" class="btn btn-success" onclick="">Save details</button>
                           <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
                         </div>
                       </div>
@@ -395,15 +393,6 @@
   <script>
     var locationData = document.getElementById("geoloc");
 
-    // function getLocation() {
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(showPosition, fail, options);
-
-    //     } else {
-    //         x.innerHTML = "Geolocation is not supported by this browser.";
-    //     }
-    // }
-
     function getLocation() {
       navigator.geolocation.getCurrentPosition(function(pos) {
         console.log(pos.coords.latitude)
@@ -429,11 +418,21 @@
       maximumAge: 0
     };
 
-    $(document).ready(function() {
-      $(".select2_single").select2({
-        placeholder: "Select a state",
-        allowClear: true
-      });
+    var today = new Date();
+    var expiry = new Date(today.getTime() + 60 * 24 * 3600 * 1000); // store for 60 days
+
+    function setCookie(name, value)
+    {
+      document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+    }
+
+    function storeValues()  
+    {
+      setCookie("firstname", document.officer.firstname.value);
+      setCookie("lastname", document.officer.lastname.value);
+      setCookie("location", document.officer.location.value);
+      setCookie("phone", document.officer.phone.value);
+    }
 
     </script>
 
