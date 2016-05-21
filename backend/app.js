@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -53,6 +53,7 @@ app.get('/api/sixDayForecast', function(req, res) {
 	
 	request(base + lon +','+ lat + additional, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
+	  	// use strict does not allow the use of eval
 	    eval("var k = " + body);
 	    k = k['hourlyForecastPeriod']
 	    // console.log(k.length)
