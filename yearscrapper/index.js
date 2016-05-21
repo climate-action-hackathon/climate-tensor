@@ -1,6 +1,7 @@
 const request = require("request");
 const Promise = require("bluebird");
 const cheerio = require("cheerio");
+const fs = require("fs");
 
 const rootURL = "https://www.wunderground.com/cgi-bin/findweather/getForecast?query=uganda&MR=1"
 // const rootURL = "http://localhost:7788"
@@ -44,9 +45,10 @@ request.getAsync(options)
 			// console.log(areas)
 			
 		})
-		return (areas, areasURL)
+		fs.writeFile('areas.txt', areas)
+		fs.writeFile('areasURK.txt', areasURL)
+		return (areas)
 	})
-	// .spread(function())
-	// .then(console.log)
+	.then(console.log)
 	// .then(console.log(areasURL))
 	.catch(console.error);
