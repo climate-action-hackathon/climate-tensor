@@ -150,7 +150,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">John Doe
+                  <img src="images/img.jpg" alt="">
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -874,7 +874,13 @@
         }
         return "";
     }
-    var place = getCookie("location")
+
+    if (getCookie > 0 ){
+      var place = getCookie("location")  
+    } else {
+      var place = "Kampala"
+    }
+    
     // console.log(place)
     // jquery lol (makes life easier)
     $.ajax({
@@ -911,7 +917,9 @@
 
       if (location.length > 0) {
         document.getElementsByClassName("x_title")[0].childNodes[1].innerHTML = "Six Day Weather Forecast (" + location + "):"
-      }      
+      } else {
+        document.getElementsByClassName("x_title")[0].childNodes[1].innerHTML = "Six Day Weather Forecast (" + place + "):"
+      }
     }
 
     window.onload = displayStored()
