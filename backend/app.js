@@ -11,7 +11,12 @@ const path = require('path');
 // const authToken = process.env.TWITOKEN;
 // const client = require('twilio')(accountSid, authToken);
 
- const app = express()
+// Weather Stuff
+
+const geoAPIKey = process.env.GEOKEY;
+const earthAPIKEY = process.env.EARTHKEY
+
+const app = express()
 // App shit
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,19 +47,6 @@ app.get('/', function(req, res) {
 
 // Arua,Entebbe,Fort Portal,Gulu,Jinja,Kabale,Kampala,Kasese,Masindi,Mbarara,Moroto,Paraa,Soroti,Tororo
 
-app.get('/api/sixDayForecastLocation', function(req, res) {
-	let location = req.query.location
-	const base = "http://api.opencagedata.com/geocode/v1/geojson?query="
-	const additional = "%2C+uganda&pretty=1&key=c830cb77cab6e802760203c41da19374"
-	request(base + location + additional, function (error, response, body) {
-		if (!error && response.statusCode == 200) {
-			body = JSON.parse(body)
-			console.log(body.features[0].geometry.coordinates[0])
-			console.log(body.features[0].geometry.coordinates[1])
-		}
-	})
-})
-
 app.get('/api/sixDayForecast', function(req, res) {
 	let lon = req.query.lon;
 	let lat = req.query.lat;
@@ -71,9 +63,9 @@ app.get('/api/sixDayForecast', function(req, res) {
 	// console.log(lon)
 	// console.log(lat)
 	const base = "https://earthnetworks.azure-api.net/getHourly6DayForecast/data/forecasts/v1/hourly?location="
-	const additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key=d484f320c70e43528cd85eae0618c45a"
+	const additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key="
 	
-	request(base + lon +','+ lat + additional, function (error, response, body) {
+	request(base + lon +','+ lat + additional + earthAPIKEY, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 	  	// use strict does not allow the use of eval
 	    eval("var k = " + body);
@@ -112,6 +104,65 @@ app.get('/api/sixDayForecast', function(req, res) {
 	 }
 	})
 })	
+
+app.get('/api/sixDayForecastLocation', function(req, res) {
+	let location = req.query.location
+	const base_geo = "http://api.opencagedata.com/geocode/v1/geojson?query="
+	const additional_geo = "%2C+uganda&pretty=1&key="
+
+	request(base_geo + location + additional_geo + geoAPIKey, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			body = JSON.parse(body)
+			var lon = body.features[0].geometry.coordinates[0]
+			var lat = body.features[0].geometry.coordinates[1]
+			console.log(lon)
+			console.log(lat)
+			const base = "https://earthnetworks.azure-api.net/getHourly6DayForecast/data/forecasts/v1/hourly?location="
+			const additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key="
+			request(base + lon +','+ lat + additional + earthAPIKEY, function (error, response, body) {
+			  if (!error && response.statusCode == 200) {
+			  	// use strict does not allow the use of eval
+			    eval("var k = " + body);
+			    k = k['hourlyForecastPeriod']
+			    // console.log(k.length)
+			    // console.log(k[2])
+			    output = ''
+			    fine = 0
+			    for (let i=0; i<k.length; i++){
+			    	// k has 142 data points for the next 6 days. pick only 6 data points to represent the next
+			    	if (i % 23 == 0) {
+					    let bit = k[i];
+					    // create own json
+					    output += '{"temperature":' + bit['temperature'] + 
+					    ', "humidity":' + bit['relativeHumidity'] +
+					    ', "precip":' + bit['adjustedPrecipProbability'] + 
+					    ', "windspeed":' + bit['windSpeed'] +
+					    ', "description":' + JSON.stringify(bit['description']) +
+					    '},'
+					    // output += k[i]
+			    	}
+				};
+				// output = output.replace(/\//g, "")
+
+				// sanitization
+				output = output.substr(0, output.length - 1)
+				output = '{ "sixForecast": [' + output + '] }'
+				// output = output + "'"
+			    console.log(output)
+			    // eval("let finalout = " + output);
+			    // console.log(output)
+			    res.type('json'); 
+			    res.send(output)
+			 } else {
+			 	res.json('error in weather service (earthnetworks')
+			 }
+			})
+		} else {
+			res.json('error in reverse geocoding!')
+		}
+	})
+})
+
 
 app.get('/api/thirtyDayForecast', function(req, res) {
 	let location = req.query.location
