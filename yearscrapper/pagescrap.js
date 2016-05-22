@@ -50,12 +50,12 @@ function crawlSingle(urllol) {
 					JSONObj[counter] = {
 						"maxtemp": maxTemp,
 						"meantemp": meanTeamp,
-						"mintemp": minTemp
+						"mintemp": minTemp,
 						"precip": precip, 
 						"windspeed": wind
 					}
 					console.log(JSONObj)
-					fs.writeFile('yeardata.json', JSON.stringify(JSONObj))
+					fs.writeFile('tororo_yeardata.json', JSON.stringify(JSONObj))
 					crawlSingle(base + nextMonth)
 				}
 				catch(err) {
@@ -66,7 +66,7 @@ function crawlSingle(urllol) {
 						"precip": 0, 
 						"windspeed": 0
 					}
-					fs.writeFile('yeardata.json', JSON.stringify(JSONObj))
+					fs.writeFile('tororo_yeardata.json', JSON.stringify(JSONObj))
 				}
 
 			})
