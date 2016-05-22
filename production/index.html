@@ -863,9 +863,26 @@
     var shortForecastArrayEtc = document.getElementsByTagName("h5")
     var shortForecastArrayMain = document.getElementsByClassName("degrees")
 
+    // cookies
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
+    var place = getCookie("location")
+    // console.log(place)
     // jquery lol (makes life easier)
     $.ajax({
-      url: "http://nameless-caverns-21948.herokuapp.com/api/sixDayForecast?lon=-0.1&lat=-81"
+      url: "https://nameless-caverns-21948.herokuapp.com/api/sixDayForecastLocation?location=" + place
     })
     .done(function(data) {
       for (var i = 0; i < data.sixForecast.length; i++) {
@@ -882,21 +899,6 @@
       }
     })
 
-    // cookies
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return "";
-    }
 
     function displayStored(){
       var fn = getCookie("firstname");
