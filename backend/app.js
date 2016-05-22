@@ -42,14 +42,36 @@ app.get('/', function(req, res) {
 
 // Arua,Entebbe,Fort Portal,Gulu,Jinja,Kabale,Kampala,Kasese,Masindi,Mbarara,Moroto,Paraa,Soroti,Tororo
 
+app.get('/api/sixDayForecastLocation', function(req, res) {
+	let location = req.query.location
+	const base = "http://api.opencagedata.com/geocode/v1/geojson?query="
+	const additional = "%2C+uganda&pretty=1&key=c830cb77cab6e802760203c41da19374"
+	request(base + location + additional, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			body = JSON.parse(body)
+			console.log(body.features[0].geometry.coordinates[0])
+			console.log(body.features[0].geometry.coordinates[1])
+		}
+	})
+})
 
 app.get('/api/sixDayForecast', function(req, res) {
 	let lon = req.query.lon;
 	let lat = req.query.lat;
+	let location = req.query.location
+	console.log(location)
+
+	// should really use a geolocation api @@
+	switch (location) {
+		case "arus":
+			lon = -0.2;
+			lat = 20;
+			break;
+	}
 	// console.log(lon)
 	// console.log(lat)
-	let base = "https://earthnetworks.azure-api.net/getHourly6DayForecast/data/forecasts/v1/hourly?location="
-	let additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key=d484f320c70e43528cd85eae0618c45a"
+	const base = "https://earthnetworks.azure-api.net/getHourly6DayForecast/data/forecasts/v1/hourly?location="
+	const additional = "&locationtype=latitudelongitude&units=english&offset=0&metadata=true&verbose=true&subscription-key=d484f320c70e43528cd85eae0618c45a"
 	
 	request(base + lon +','+ lat + additional, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
