@@ -5,8 +5,9 @@ const fs = require("fs");
 const dateFormat = require('dateformat')
 
 const cityCode = "63684"
+const base = "https://www.wunderground.com"
 const testurl1 = "https://www.wunderground.com/history/wmo/" + cityCode + "/2009/1/1/MonthlyHistory.html"
-const testurl2 = "https://www.wunderground.com/history/wmo/63684/2009/2/1/MonthlyHistory.html"
+const testurl2 = "https://www.wunderground.com/history/wmo/" + cityCode + "/2009/2/1/MonthlyHistory.html"
 
 var JSONObj = {};
 var counter = 0
@@ -35,6 +36,11 @@ function crawlSingle(urllol) {
 					var wind = wind.text()
 					console.log(wind)
 
+					var maxTemp = $(k[1])
+					var maxTemp = maxTemp.text()
+					var minTemp = $(k[7])
+					var minTemp = minTemp.text()
+
 					var nextMonth = $('div[class=next-link] a')
 					var nextMonth = nextMonth.attr('href')
 					console.log(nextMonth)
@@ -42,12 +48,15 @@ function crawlSingle(urllol) {
 					counter = counter + 1
 
 					JSONObj[counter] = {
+						"maxtemp": maxTemp,
 						"meantemp": meanTeamp,
+						"mintemp": minTemp
 						"precip": precip, 
 						"windspeed": wind
 					}
 					console.log(JSONObj)
 					fs.writeFile('yeardata.json', JSON.stringify(JSONObj))
+					crawlSingle(base + nextMonth)
 				}
 				catch(err) {
 					counter = counter + 1
@@ -68,9 +77,9 @@ function crawlSingle(urllol) {
 }
 
 crawlSingle(testurl1)
-	.then(crawlSingle(testurl2))
-	.then(console.log)
-	// .then(function(data){
+	// .then(crawlSingle(testurl2))
+	// .then(console.log)
+	// // .then(function(data){
 	// 	console.log(JSONObj)
 	// 	fs.writeFile('cibai.json', JSON.stringify(JSONObj))
 	// })
