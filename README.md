@@ -27,7 +27,7 @@ python base_urls.py
 python indivpage.py
 ```
 
-### geolocation functionality: 
+### Simple webserver (for geolocation and cookie store to work)
 ```
 python -m http.server // py3
 python -m SimpleHTTPServer // py2
